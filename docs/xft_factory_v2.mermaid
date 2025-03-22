@@ -1,0 +1,9 @@
+sequenceDiagram
+    participant Owner
+    participant Factory as XFTFactory
+    participant Blockchain
+
+    Owner->>Factory: Call deploy(salt, bytecode)
+    Factory->>Blockchain: Deploy contract using CREATE2
+    Blockchain-->>Factory: Return deployed address
+    Factory->>Owner: Emit Deployed event with address, salt, bytecode hash

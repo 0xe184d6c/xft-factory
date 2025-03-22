@@ -1,0 +1,27 @@
+XFTFactory.sol Protocol
+
+Public and External Functions
+deploy(uint256 salt, bytes calldata bytecode): Deploys a contract with salt and bytecode.
+deployWithParams(uint256 salt, bytes calldata bytecode, bytes calldata constructorArgs): Deploys a contract with constructor parameters.
+batchDeploy(uint256 saltBase, bytes[] calldata bytecodes): Deploys multiple contracts in a batch.
+deployProxies(uint256 saltBase, uint256 count, address implementation): Deploys multiple proxy contracts.
+predictAddress(uint256 salt, bytes calldata bytecode): Predicts contract address.
+predictBatchAddresses(uint256 saltBase, bytes[] calldata bytecodes): Predicts addresses for batch deployment.
+verifyDeployment(address deployedAddress): Verifies if contract was deployed by factory.
+isSaltUsed(uint256 salt, bytes calldata bytecode): Checks if salt is used for bytecode.
+transferOwnership(address newOwner): Transfers ownership.
+owner(): Returns current owner address.
+isDeployed(address): Checks if address was deployed by factory.
+saltBytecodeUsed(bytes32): Checks if salt-bytecode hash was used.
+
+Private and Internal Functions
+None explicitly defined.
+
+Events
+Deployed(address indexed deployedAddress, uint256 indexed salt, bytes32 bytecodeHash): Emitted on single deployment.
+DeployedWithParams(address indexed deployedAddress, uint256 indexed salt, bytes32 bytecodeHash, bytes params): Emitted on deployment with parameters.
+BatchDeployed(address[] deployedAddresses, uint256 indexed saltBase): Emitted on batch deployment.
+OwnershipTransferred(address indexed previousOwner, address indexed newOwner): Emitted when ownership changes.
+
+Roles
+Owner: Can deploy contracts, transfer ownership, and manage factory.
