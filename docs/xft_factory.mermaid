@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant User
+    participant Factory as XFTFactory
+    participant Blockchain
+
+    User->>Factory: Call predictAddress(salt, bytecode)
+    Factory-->>User: Return predicted address
+
+    User->>Factory: Call deploy(salt, bytecode)
+    Factory->>Blockchain: Deploy contract using CREATE2
+    Blockchain-->>Factory: Return deployed address
+    Factory->>User: Emit Deployed event with address and salt
