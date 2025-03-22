@@ -1,0 +1,13 @@
+User sends GET /deploy with bytecode and optional salt
+
+Express server validates request parameters
+
+index.ts calls Factory contract's deploy method
+
+Factory uses CREATE2 to deploy the Child contract
+
+Factory emits a Deployed event with the new address
+
+index.ts parses the receipt to extract the deployed address
+
+JSON response with contract address and tx hash is returned
