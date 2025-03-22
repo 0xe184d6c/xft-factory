@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant S as Script
+    participant F as XFTFactory
+    participant B as Blockchain
+    participant C as SimpleStorage
+
+    S->>S: Compile SimpleStorage -> Bytecode
+    S->>S: Encode constructor (42) -> Params
+    S->>F: predictAddress(salt=54321, bytecode+params)
+    F-->>S: Return 0xA230aFD877d570825353fB84cb42FB7Fe1996C4D
+    S->>F: deployWithParams(salt=54321, bytecode, params)
+    F->>B: CREATE2 deploy bytecode+params
+    B-->>F: Deployed at 0xA230aFD877d570825353fB84cb42FB7Fe1996C4D
+    F-->>S: Tx hash 0x7b126d544df0376b8ed507230dffb98415ea4441c57459bd4c5ff245a9dd2ba0
+    S->>C: Connect to 0xA230aFD877d570825353fB84cb42FB7Fe1996C4D
+    C-->>S: value = 42
+    S->>C: setValue(100)
+    C-->>S: value = 100
