@@ -2,7 +2,18 @@ XFT FACTORY
 
 
 
-
+1 Script compiles SimpleStorage to bytecode.
+2 Script encodes constructor param (42).
+3 Script asks factory to predict address with salt and bytecode+params.
+4 Factory returns predicted address.
+5 Script calls factory to deploy with salt, bytecode, and params.
+6 Factory uses CREATE2 to deploy on blockchain.
+7 Blockchain deploys contract at predicted address.
+8 Factory returns transaction hash to script.
+9 Script connects to deployed contract.
+10 Contract returns initial value (42).
+11 Script updates value to 100.
+12 Contract confirms new value (100).
 
 
 
