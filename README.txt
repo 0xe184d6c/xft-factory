@@ -22,7 +22,7 @@ XFT FACTORY
 
 
 
-
+https://docs.google.com/document/d/1FQXC4SeR7L1PrT5muhocDeAzlMhCkymrS0oVUTdwzVs/edit?tab=t.0
 
 
 
